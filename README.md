@@ -11,7 +11,7 @@
 #### 技术栈：
 
 - MySQL 5.7
-- Java 11
+- Java 8+
 - Spring Boot 2.1
 - Spring Data JPA
 - Spring Security

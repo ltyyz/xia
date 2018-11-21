@@ -5,6 +5,7 @@ import com.github.loutai.xia.entity.XiaConfig;
 import com.github.loutai.xia.entity.XiaPermission;
 import com.github.loutai.xia.repository.XiaPermissionRepository;
 import com.github.loutai.xia.service.ConfigService;
+import com.google.common.collect.Lists;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.web.FilterInvocation;
@@ -15,10 +16,7 @@ import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Component
 public class CustomInvocationSecurityMetadataSourceService implements
@@ -39,7 +37,7 @@ public class CustomInvocationSecurityMetadataSourceService implements
         for(XiaPermission permission : permissions) {
             if (!StringUtils.isEmpty(permission.getResource())) {
                 mappedPermissions.put(permission.getResource(),
-                        List.of(new SecurityConfig(permission.getId().toString()))); // url -> [permissionId]
+                        Lists.newArrayList(new SecurityConfig(permission.getId().toString()))); // url -> [permissionId]
             }
         }
     }
@@ -72,7 +70,7 @@ public class CustomInvocationSecurityMetadataSourceService implements
     public void loadFreeAccessUrl() {
         XiaConfig config = configService.findByAppIdAndCode(Constant.APP_ID_XIA, Constant.CONFIG_CODE_FREE_ACCESS_URL);
         String[] urls = config.getValue().split(",");
-        freeAccessUrls = Set.of(urls);
+        freeAccessUrls = new HashSet<>(Lists.newArrayList(urls));
     }
 
     @Override

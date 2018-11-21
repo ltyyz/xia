@@ -8,7 +8,7 @@
 ```bash
 java -version
 ```
-至少需要 JDK11 （抱歉，我使用了新的语法，反正是 site project， 谁在意呢~）
+至少需要 JDK8
 
 XIA 使用 maven 架构，所以请安装 maven ，验证方式：
 ```bash
