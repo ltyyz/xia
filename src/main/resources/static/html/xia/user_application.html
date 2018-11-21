@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../../js/xia/boot.js"></script>
+    <script type="text/javascript" src="../../js/xia/user_application.js"></script>
+</head>
+<body>
+    <table class="easyui-datagrid" style="" id="dg"
+           data-options="rownumbers:true,singleSelect:true,method:'get',toolbar:'#tb',
+                pagination:true,fitColumns:true,pageSize:20,width:'100%'">
+        <thead>
+        <tr>
+            <th data-options="field:'appId',width:180,formatter:formatData(APP_ID_DIC_URL)">系统</th>
+            <th data-options="field:'userId',width:180,formatter:formatData(USER_ID_DIC_URL)">用户</th>
+            <th data-options="field:'isDefault',width:180,formatter:formatDic('IS_DEFAULT_APP')">是否默认</th>
+        </tr>
+        </thead>
+    </table>
+    <div id="tb" style="padding:2px 5px;">
+        <a href="javascript:;" class="easyui-linkbutton" id="addButton" iconCls="icon-add" plain="true">添加</a>
+        <a href="javascript:;" class="easyui-linkbutton" id="updateButton" iconCls="icon-edit" plain="true">修改</a>
+        <a href="javascript:;" class="easyui-linkbutton" id="deleteButton" iconCls="icon-cancel" plain="true">删除</a>
+        <input class="easyui-combobox" id="searchAppId" data-options="prompt:'选择系统',url:'../../xia/application/dic',editable:false,panelHeight:'auto'" style="width:200px;">
+        <input class="easyui-combobox" id="searchUserId" data-options="prompt:'选择用户',url:'../../xia/user/dic',editable:false,panelHeight:'auto'" style="width:200px;">
+        <a class="easyui-linkbutton" id="searchButton">搜索</a>
+    </div>
+
+    <div id="dlg" class="easyui-dialog" data-options="closed:true" style="width:450px;height:220px;padding:10px">
+        <form id="ff" method="post">
+            <input type="hidden" name="id" id="id" value="0" />
+            <div style="margin-bottom:10px">
+                <input class="easyui-combobox" name="appId" id="appId" style="width:90%" data-options="url:'../../xia/application/dic',label:'系统:',required:true,editable:false,panelHeight:'auto'">
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-combobox" name="userId" id="userId" style="width:90%" data-options="url:'../../xia/user/dic',label:'系统:',required:true,editable:false,panelHeight:'auto'">
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-combobox" name="isDefault" id="isDefault" style="width:90%" data-options="url:'../../xia/dic/dic?code=IS_DEFAULT_APP',label:'默认系统:',textField:'name',valueField:'value',required:true,editable:false,panelHeight:'auto'">
+            </div>
+        </form>
+        <div style="text-align:center;padding:5px 0">
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save'" onclick="submitForm()" style="width:80px">保存</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-clear'" onclick="cancelForm()" style="width:80px">取消</a>
+        </div>
+    </div>
+
+    <div id="mm" class="easyui-menu" style="width:60px;">
+        <div data-options="iconCls:'icon-add'" id="mm-add">添加</div>
+        <div data-options="iconCls:'icon-edit'" id="mm-update">修改</div>
+        <div data-options="iconCls:'icon-cancel'" id="mm-delete">删除</div>
+    </div>
+
+
+</body>
+</html>

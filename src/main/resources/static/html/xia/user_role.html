@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../../js/xia/boot.js"></script>
+    <script type="text/javascript" src="../../js/xia/user_role.js"></script>
+</head>
+<body class="easyui-layout" fit="true">
+    <div data-options="region:'west',split:false,border:0"  style="width:350px;padding:10px;">
+        <div style="margin-bottom:10px;width:100%;">
+            <input class="easyui-textbox" name="searchKey" id="searchKey" style="width:100%" data-options="prompt:'搜索用户',buttonText:'搜索'">
+        </div>
+        <div class="easyui-datalist" id="userList" title="" lines="false" style="width:100%;height:auto;"></div>
+    </div>
+
+    <div data-options="region:'center',split:false,border:0" style="padding: 10px;">
+        <div id="dlp" style="display: block;">
+            <div class="easyui-datalist" id="roleList" title="" style="width:400px;height:auto" data-options="
+                    url: '../../xia/role/dic',
+                    method: 'get',
+                    checkbox: true,
+                    selectOnCheck: false,
+                    groupField: 'appName',
+                    toolbar:'#tb'">
+            </div>
+            <div id="tb" style="padding:2px 5px;">
+                <a href="javascript:;" class="easyui-linkbutton" id="saveButton" iconCls="icon-save" plain="true">保存</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

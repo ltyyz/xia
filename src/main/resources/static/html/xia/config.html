@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../../js/xia/boot.js"></script>
+    <script type="text/javascript" src="../../js/xia/config.js"></script>
+</head>
+<body>
+    <table class="easyui-datagrid" style="" id="dg"
+           data-options="rownumbers:true,singleSelect:true,method:'get',toolbar:'#tb',
+                pagination:true,fitColumns:true,pageSize:20,width:'100%'">
+        <thead>
+        <tr>
+            <th data-options="field:'appId',width:180,formatter:formatData(APP_ID_DIC_URL)">系统</th>
+            <th data-options="field:'name',width:180">名称</th>
+            <th data-options="field:'code',width:180">键</th>
+            <th data-options="field:'value',width:180">值</th>
+            <th data-options="field:'ext1',width:180">ext1</th>
+            <th data-options="field:'ext2',width:180">ext2</th>
+            <th data-options="field:'ext3',width:180">ext3</th>
+            <th data-options="field:'createDate',width:180">创建日期</th>
+            <th data-options="field:'updateDate',width:180">更新日期</th>
+        </tr>
+        </thead>
+    </table>
+    <div id="tb" style="padding:2px 5px;">
+        <a href="javascript:;" class="easyui-linkbutton" id="addButton" iconCls="icon-add" plain="true">添加</a>
+        <a href="javascript:;" class="easyui-linkbutton" id="updateButton" iconCls="icon-edit" plain="true">修改</a>
+        <a href="javascript:;" class="easyui-linkbutton" id="deleteButton" iconCls="icon-cancel" plain="true">删除</a>
+        <input class="easyui-combobox" id="searchAppId" data-options="prompt:'选择系统',url:'../../xia/application/dic',editable:false,panelHeight:'auto'" style="width:200px;">
+        <input class="easyui-textbox" id="searchCode" data-options="prompt:'输入键'" style="width:200px;height:32px;">
+        <a href="#" class="easyui-linkbutton" id="searchButton">搜索</a>
+    </div>
+
+    <div id="dlg" class="easyui-dialog" data-options="closed:true" style="width:450px;height:480px;padding:10px">
+        <form id="ff" method="post">
+            <input type="hidden" name="id" id="id" value="0" />
+            <div style="margin-bottom:10px">
+                <input class="easyui-combobox" name="appId" id="appId" style="width:90%" data-options="url:'../../xia/application/dic',label:'系统:',required:true,editable:false,panelHeight:'auto'">
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" name="name" style="width:90%" data-options="label:'名称:',required:true,validType:['length[1,100]']">
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" name="code" id="code" style="width:90%" data-options="label:'键:',required:true,validType:['length[1,50]']">
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" name="value" id="value" style="width:90%" data-options="label:'值:',required:true,validType:['length[1,1000]']">
+            </div>
+
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" name="description" style="width:90%;height:80px;" data-options="label:'说明:',validType:['length[0,500]'],multiline:true">
+            </div>
+
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" name="ext1" style="width:90%" data-options="label:'ext1:',required:false,validType:['length[1,1000]']">
+            </div>
+
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" name="ext2" style="width:90%" data-options="label:'ext2:',required:false,validType:['length[1,1000]']">
+            </div>
+
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" name="ext3" style="width:90%" data-options="label:'ext3:',required:false,validType:['length[1,1000]']">
+            </div>
+
+
+        </form>
+        <div style="text-align:center;padding:5px 0">
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save'" onclick="submitForm()" style="width:80px">保存</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-clear'" onclick="cancelForm()" style="width:80px">取消</a>
+        </div>
+    </div>
+
+    <div id="mm" class="easyui-menu" style="width:60px;">
+        <div data-options="iconCls:'icon-add'" id="mm-add">添加</div>
+        <div data-options="iconCls:'icon-edit'" id="mm-update">修改</div>
+        <div data-options="iconCls:'icon-cancel'" id="mm-delete">删除</div>
+    </div>
+
+
+</body>
+</html>

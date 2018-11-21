@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../../js/xia/boot.js"></script>
+    <script type="text/javascript" src="../../js/xia/role_menu.js"></script>
+</head>
+<body class="easyui-layout" fit="true">
+    <div data-options="region:'west',split:false,border:0"  style="width:350px;padding:10px;">
+        <div style="margin-bottom:10px;width:100%;">
+            <input class="easyui-combobox" name="appId" id="appId" style="width:100%" data-options="url:'../../xia/application/dic',prompt:'选择所属系统',editable:false,panelHeight:'auto'">
+        </div>
+        <div id="dlp" style="display: none;">
+            <ul class="easyui-datalist" id="roleList" title="" lines="false" style="width:100%;height:auto;cursor: pointer;"></ul>
+        </div>
+    </div>
+
+    <div data-options="region:'center',split:false,border:0" style="padding: 10px;">
+        <div id="tgp" style="display: block;">
+            <table class="easyui-treegrid" style="" id="tg"
+                   data-options="rownumbers:true,singleSelect:true,toolbar:'#tb',
+                        fitColumns:true,width:'99%',checkbox:true,cascadeCheck:true,
+                        idField:'id',treeField:'name'">
+                <thead>
+                <tr>
+                    <th data-options="field:'name',width:180">名称</th>
+                    <th data-options="field:'type',width:180,formatter:formatDic('MENU_TYPE')">类型</th>
+                    <th data-options="field:'url',width:180">URL</th>
+                </tr>
+                </thead>
+            </table>
+            <div id="tb" style="padding:2px 5px;">
+                <a href="javascript:;" class="easyui-linkbutton" id="saveButton" iconCls="icon-save" plain="true">保存</a>
+                <a href="javascript:;" class="easyui-linkbutton" id="expandButton" iconCls="icon-expand" plain="true">展开</a>
+                <a href="javascript:;" class="easyui-linkbutton" id="collapseButton" iconCls="icon-collapse" plain="true">收起</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

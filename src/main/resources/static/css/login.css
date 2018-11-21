@@ -1,0 +1,75 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: '微软雅黑', 'monaco';
+}
+
+body {
+    background: url('../img/bg1.jpg') no-repeat;
+    background-size: 100%;
+    text-align: center;
+}
+
+.login-panel {
+    margin: 100px auto;
+    width: 400px;
+    height: 480px;
+    background-color: rgba(100, 100, 100, 0.7);
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.login-title {
+    padding: 15px;
+    font-size: 30px;
+    background-color: rgba(70, 70, 70, 0.7);
+    font-family: 'Ink Free';
+}
+
+.copyright {
+    position: absolute;
+    left: 137px;
+    bottom: 10px;
+    font-size: 12px;
+}
+
+.login-panel input[type=text], .login-panel input[type=password] {
+    width: 300px;
+    display: block;
+    height: 36px;
+    border: 0;
+    outline: 0;
+    padding: 6px 10px;
+    margin: 48px auto;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.login-panel input[type=submit] {
+    width: 180px;
+    color: white;
+    font-size: 24px;
+    text-transform: none;
+    cursor: pointer;
+    display: inline-block;
+    min-height: 1em;
+    outline: 0;
+    border: none;
+    vertical-align: baseline;
+    background: white none;
+    color: rgba(0,0,0,.6);
+    margin: 0 .25em 0 0;
+    padding: 10px 15px;
+    text-shadow: none;
+    line-height: 1em;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+}
+
+.login-tips {
+    color: #ff4f3d;
+    margin: 10px;
+    font-size: 12px;
+}

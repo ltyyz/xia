@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading...</title>
+    <script type="text/javascript" src="../../js/xia/boot.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/sidemenu_style.css">
+    <script type="text/javascript" src="../../js/xia/index.js"></script>
+</head>
+<body class="easyui-layout" fit="true" data-options="border:0">
+    <div data-options="region:'north',border:0" style="height:52px;background: #2D3E50;">
+        <div style="color: #FFFFFF;height: 52px;position: relative;">
+            <span style="font-size: 36px;" id="LOGO">🥝</span>
+            <span id="APP_NAME" style="margin-left: 0;font-size: 36px;font-family: 'Ink Free';font-weight: bold;"></span>
+
+            <div id="user-info" style="position: absolute;right: 0;top:0;">
+                <a href="javascript:void(0)" class="easyui-menubutton" id="user_menu"
+                   style="width:auto;height:52px;" data-options="iconCls:'icon-user',panelHeight:48,plain:false,menu:'#mm'">Loading.</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="mm" style="display:none">
+        <div data-options="iconCls:'icon-switch'">
+            <span>切换系统</span>
+            <div id="appList">
+                <div>xia</div>
+                <div>qiu</div>
+            </div>
+        </div>
+        <div class="menu-sep"></div>
+        <div data-options="iconCls:'icon-man'" onclick="checkProfile()">个人信息</div>
+        <div data-options="iconCls:'icon-lock'" onclick="modifyPassword()">修改密码</div>
+        <div data-options="iconCls:'icon-logout'" onclick="signOut()">退出</div>
+    </div>
+
+    <div data-options="region:'west',border:0" style="width:250px;background: #2D3E50;overflow-x: hidden;">
+        <div id="sm" style="width:100%;"></div>
+        <div style="position: fixed;left:20px; bottom:3px;color: #ababab">@ 2018 github.com/loutai</div>
+    </div>
+    <div data-options="region:'center',border:0">
+        <div id="TABS" class="easyui-tabs" style="width:100%;"
+             data-options="narrow:true,border:false">
+        </div>
+    </div>
+
+    <div id="dlg" class="easyui-dialog" data-options="closed:true" style="width:450px;height:350px;padding:10px">
+        <form id="ff" method="post">
+            <input type="hidden" name="id" id="id" value="0" />
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" name="account" style="width:90%" data-options="label:'账号:',disabled:true">
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-combobox" name="status" style="width:90%" data-options="url:'../../xia/dic/dic?code=USER_STATUS',textField:'name',valueField:'value',label:'状态:',disabled:true,panelHeight:'auto'">
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" name="username" style="width:90%" data-options="label:'昵称:',required:true,validType:['length[3,10]']">
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" name="password" style="width:90%" data-options="label:'旧密码:',type:'password',validType:['length[4,20]']">
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" name="newPassword" id="newPassword" style="width:90%" data-options="label:'新密码:',type:'password',validType:['length[4,20]']">
+            </div>
+            <div style="margin-bottom:10px">
+                <input class="easyui-textbox" name="newPassword2" style="width:90%" data-options="label:'重复密码:',type:'password',validType:['equal[&quot;newPassword&quot;]','length[4,20]']">
+            </div>
+        </form>
+        <div style="text-align:center;padding:5px 0">
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save'" onclick="submitForm()" style="width:80px">保存</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-clear'" onclick="cancelForm()" style="width:80px">取消</a>
+        </div>
+    </div>
+
+    <div id="dlg2" class="easyui-dialog" data-options="closed:true,title:'请选择'" style="width:350px;height:150px;padding:10px;text-align:center">
+        <input type="hidden" id="switchAppId" />
+        <p id="switchAppName" style="font-size: 18px;font-weight: bold;margin: 10px auto;"></p>
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-switch'" onclick="switchToApp(false)" style="width:auto">切换</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-switch'" onclick="switchToApp(true)" style="width:auto">切换并设为默认</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-clear'" onclick="switchCancel()" style="width:auto">取消</a>
+    </div>
+
+
+</body>
+</html>
