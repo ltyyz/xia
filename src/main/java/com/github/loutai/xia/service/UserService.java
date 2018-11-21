@@ -6,11 +6,11 @@ import com.github.loutai.xia.entity.XiaPermission;
 import com.github.loutai.xia.entity.XiaUser;
 import com.github.loutai.xia.repository.XiaPermissionRepository;
 import com.github.loutai.xia.repository.XiaUserRepository;
-import com.github.loutai.xia.security.CustomPasswordEncoder;
 import com.github.loutai.xia.security.SecurityContextUtil;
 import lombok.val;
 import org.springframework.data.domain.*;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -31,7 +31,7 @@ public class UserService {
     private XiaUserRepository userRepository;
 
     @Resource
-    private CustomPasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     @Resource
     private XiaPermissionRepository permissionRepository;
@@ -93,7 +93,7 @@ public class UserService {
         val _user = userRepository.findById(_userDetail.getUserId()).get();
         if (!StringUtils.isEmpty(newPassword)) {
             String oldPassword = user.getPassword();
-            if (StringUtils.isEmpty(oldPassword) || !passwordEncoder.encode(oldPassword).equals(_user.getPassword())) {
+            if (StringUtils.isEmpty(oldPassword) || !passwordEncoder.matches(oldPassword, _user.getPassword())) {
                 return ServiceResult.ofError("密码错误");
             }
             _user.setPassword(passwordEncoder.encode(newPassword));
