@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: xia
+-- Host: 118.24.23.54    Database: xia
 -- ------------------------------------------------------
 -- Server version	5.7.22
 
@@ -303,7 +303,7 @@ CREATE TABLE `xia_user` (
   `org_id` int(11) DEFAULT NULL,
   `account` varchar(20) DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
-  `password` varchar(32) DEFAULT NULL,
+  `password` varchar(256) DEFAULT NULL,
   `status` char(1) DEFAULT '1',
   `create_date` datetime DEFAULT NULL,
   `update_date` datetime DEFAULT NULL,
@@ -320,7 +320,7 @@ CREATE TABLE `xia_user` (
 
 LOCK TABLES `xia_user` WRITE;
 /*!40000 ALTER TABLE `xia_user` DISABLE KEYS */;
-INSERT INTO `xia_user` VALUES (1,NULL,'admin','奇葩的管理员','admin','1',NULL,'2018-11-14 10:48:24',NULL,1,0),(2,NULL,'root','root',NULL,'1','2018-11-06 12:07:01',NULL,1,NULL,1),(3,NULL,'root','root2','111111','2','2018-11-06 12:08:24','2018-11-08 13:41:59',1,1,1),(4,NULL,'user1','user1','111111','1','2018-11-08 13:43:57',NULL,1,NULL,1),(5,NULL,'roy','Roy','111111','1','2018-11-11 14:08:08',NULL,1,NULL,0);
+INSERT INTO `xia_user` VALUES (1,NULL,'admin','奇葩的管理员','$2a$10$tfI93055LykwKyThU1AHVOX0znaV/c8MX6htwflj7D7fbD5UePq3W','1',NULL,'2018-11-21 13:50:05',NULL,1,0),(2,NULL,'root','root',NULL,'1','2018-11-06 12:07:01',NULL,1,NULL,1),(3,NULL,'root','root2','111111','2','2018-11-06 12:08:24','2018-11-08 13:41:59',1,1,1),(4,NULL,'user1','user1','111111','1','2018-11-08 13:43:57',NULL,1,NULL,1),(5,NULL,'roy','Roy','111111','1','2018-11-11 14:08:08',NULL,1,NULL,0);
 /*!40000 ALTER TABLE `xia_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -384,4 +384,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-21 19:34:11
+-- Dump completed on 2018-11-21 22:23:18

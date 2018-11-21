@@ -6,10 +6,12 @@
 该系统仍在持续开发中，期望可见变成一个强大的系统，
 如果你有兴趣并想进一步了解，欢迎。
 
+快速上手指南：[doc/QUICK_START.md](doc/QUICK_START.md)
+
 #### 技术栈：
 
 - MySQL 5.7
-- Java 8+ (developed under JDK11)
+- Java 11
 - Spring Boot 2.1
 - Spring Data JPA
 - Spring Security
